@@ -46,43 +46,103 @@ This type of counter is normally referred to as a Down Counter, (CTD). In a bina
 
 4-bit Count Down Counter
 ### Procedure
-/* write all the steps invloved */
+
+How to make connection:
+
+After Starting the experiment first click on the Components button to get component list. Now you can Drag and Drop any component in the circuit designing area. To make connection between components, just click on the Blue bubble of any components and Drag it to another Blue bubble of the same or any other components. To delete connection or to remove any component use Double click on that component or connection.
+
+How to run:
+
+After connenting all the required components,click on the Start button and you will get a new start window, where you can give the inputs. After this,you click the run button and finally the outputs are shown.
 
 
 
 ### PROGRAM 
+
 /*
+
 Program for flipflops  and verify its truth table in quartus using Verilog programming.
-Developed by: 
-RegisterNumber:  
+
+Developed by: YUVARAJ JOSHITHA
+
+RegisterNumber: 23011447 
+
 */
 
+UPCOUNTER:
+```
+module upc(clk,A);
+input clk;
+output reg[0:3]A;
+always@(posedge clk)
+begin
+A[0]=((((A[1])&(A[2]))&A[3])^A[0]);
+A[1]=(((A[2])&(A[3]))^A[1]);
+A[2]=((A[3])^A[2]);
+A[3]=1^A[3];
+end
+endmodule
+```
 
+DOWNCOUNTER:
 
+```
+module dc(clk,A);
+input clk;
+output reg[0:3]A;
+always@(negedge clk)
+begin
+A[3]=((((A[2])&(A[1]))&A[0])^A[3]);
+A[2]=(((A[1])&(A[0]))^A[2]);
+A[1]=((A[0])^A[1]);
+A[0]=1^A[0];
+end
+endmodule
+```
 
 
 
 ### RTL LOGIC UP COUNTER AND DOWN COUNTER  
 
+UPCOUNTER:
 
+![Screenshot 2023-12-02 202128](https://github.com/Joshitha-YUVARAJ/Exp-7-Synchornous-counters-/assets/145742770/34ff4916-4d7e-4421-a6f3-dce02f579309)
 
+DOWNCOUNTER:
 
-
+![Screenshot 2023-12-02 211354](https://github.com/Joshitha-YUVARAJ/Exp-7-Synchornous-counters-/assets/145742770/15ebffd4-f0e9-4853-b8bf-f727638f032e)
 
 
 
 
 ### TIMING DIGRAMS FOR COUNTER  
 
+UPCOUNTER:
 
+![Screenshot 2023-12-02 211509](https://github.com/Joshitha-YUVARAJ/Exp-7-Synchornous-counters-/assets/145742770/c4579aa9-6eb7-4105-9c79-69ba4bcc7ef7)
+
+DOWNCOUNTER:
+
+
+![Screenshot 2023-12-02 211533](https://github.com/Joshitha-YUVARAJ/Exp-7-Synchornous-counters-/assets/145742770/d0f62a7f-8a3f-4df8-a755-d7f6a69c231a)
 
 
 
 ### TRUTH TABLE 
 
+UPCOUNTER:
 
 
+![Screenshot 2023-12-02 212832](https://github.com/Joshitha-YUVARAJ/Exp-7-Synchornous-counters-/assets/145742770/d1d4853e-3f4b-4231-b575-93252416e210)
+
+DOWNCOUNTER:
+
+![Screenshot 2023-12-02 212851](https://github.com/Joshitha-YUVARAJ/Exp-7-Synchornous-counters-/assets/145742770/26649dc5-1f69-41bb-8386-62a5259a28cc)
 
 
 
 ### RESULTS 
+
+Hence the four bit up counter and down counter is implemented successfully and its functionality is validated.
+
+
